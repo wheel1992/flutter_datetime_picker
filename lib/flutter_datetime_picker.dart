@@ -114,8 +114,7 @@ class DatePicker {
     DateTime currentTime,
     DatePickerTheme theme,
   }) async {
-    return await Navigator.push(
-        context,
+    return await Navigator.of(context, rootNavigator: true).push(
         new _DatePickerRoute(
             showTitleActions: showTitleActions,
             onChanged: onChanged,
@@ -126,6 +125,18 @@ class DatePicker {
             barrierLabel: MaterialLocalizations.of(context).modalBarrierDismissLabel,
             pickerModel: DateTimePickerModel(
                 currentTime: currentTime, minTime: minTime, maxTime: maxTime, locale: locale)));
+    // return await Navigator.push(
+    //     context,
+    //     new _DatePickerRoute(
+    //         showTitleActions: showTitleActions,
+    //         onChanged: onChanged,
+    //         onConfirm: onConfirm,
+    //         onCancel: onCancel,
+    //         locale: locale,
+    //         theme: theme,
+    //         barrierLabel: MaterialLocalizations.of(context).modalBarrierDismissLabel,
+    //         pickerModel: DateTimePickerModel(
+    //             currentTime: currentTime, minTime: minTime, maxTime: maxTime, locale: locale)));
   }
 
   ///
